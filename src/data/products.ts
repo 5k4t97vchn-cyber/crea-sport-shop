@@ -1,10 +1,3 @@
-import tshirt from "@/assets/product-tshirt.jpg";
-import jersey from "@/assets/product-jersey.jpg";
-import basket from "@/assets/product-basket.jpg";
-import foot from "@/assets/product-foot.jpg";
-import mug from "@/assets/product-mug.jpg";
-import cap from "@/assets/product-cap.jpg";
-
 export type CategoryId =
   | "tshirts"
   | "tshirts-humour"
@@ -51,13 +44,27 @@ const TEXTILE_SIZES = ["XS", "S", "M", "L", "XL", "XXL"];
 const KIDS_SIZES = ["2 ans", "4 ans", "6 ans", "8 ans", "10 ans", "12 ans"];
 const BABY_SIZES = ["3 mois", "6 mois", "12 mois", "18 mois", "24 mois"];
 
+// URLs Unsplash de qualité premium - Produits sportifs
+const UNSPLASH_TSHIRT =
+  "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=80";
+const UNSPLASH_JERSEY =
+  "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80";
+const UNSPLASH_BASKET =
+  "https://images.unsplash.com/photo-1624526267942-ab67cb38121d?w=800&q=80";
+const UNSPLASH_FOOTBALL =
+  "https://images.unsplash.com/photo-1540747913ee00df4caf20f292a4c3b09e38a89a8?w=800&q=80";
+const UNSPLASH_MUG =
+  "https://images.unsplash.com/photo-1514432324607-2e467f4af445?w=800&q=80";
+const UNSPLASH_CAP =
+  "https://images.unsplash.com/photo-1584622281867-8d5c814409f7?w=800&q=80";
+
 export const PRODUCTS: Product[] = [
   {
     id: "tshirt-sport-blanc",
     name: "T-shirt sport personnalisé blanc",
     tagline: "Textile premium personnalisable",
     price: 29.9,
-    image: tshirt,
+    image: UNSPLASH_TSHIRT,
     category: "tshirts",
     sizes: TEXTILE_SIZES,
     customizable: true,
@@ -68,7 +75,7 @@ export const PRODUCTS: Product[] = [
     name: "T-shirt sport personnalisé noir",
     tagline: "Style sobre et sportif",
     price: 32.9,
-    image: tshirt,
+    image: UNSPLASH_TSHIRT,
     category: "tshirts",
     sizes: TEXTILE_SIZES,
     customizable: true,
@@ -78,7 +85,7 @@ export const PRODUCTS: Product[] = [
     name: "T-shirt humour Team Apéro Sport",
     tagline: "Humour sportif",
     price: 24.9,
-    image: tshirt,
+    image: UNSPLASH_TSHIRT,
     category: "tshirts-humour",
     sizes: TEXTILE_SIZES,
     isNew: true,
@@ -88,7 +95,7 @@ export const PRODUCTS: Product[] = [
     name: "Body bébé futur champion",
     tagline: "Cadeau naissance",
     price: 19.9,
-    image: tshirt,
+    image: UNSPLASH_TSHIRT,
     category: "body-bebe",
     sizes: BABY_SIZES,
     customizable: true,
@@ -98,7 +105,7 @@ export const PRODUCTS: Product[] = [
     name: "T-shirt enfant Mini Star",
     tagline: "Pour les jeunes sportifs",
     price: 22.9,
-    image: tshirt,
+    image: UNSPLASH_TSHIRT,
     category: "tshirts-enfants",
     sizes: KIDS_SIZES,
     customizable: true,
@@ -108,7 +115,7 @@ export const PRODUCTS: Product[] = [
     name: "Maillot de foot personnalisé",
     tagline: "Nom et numéro bientôt disponibles",
     price: 44.9,
-    image: jersey,
+    image: UNSPLASH_JERSEY,
     category: "maillots-foot",
     sizes: TEXTILE_SIZES,
     customizable: true,
@@ -119,7 +126,7 @@ export const PRODUCTS: Product[] = [
     name: "Ballon de foot entraînement",
     tagline: "Club et loisir",
     price: 24.9,
-    image: foot,
+    image: UNSPLASH_FOOTBALL,
     category: "ballons",
   },
   {
@@ -127,7 +134,7 @@ export const PRODUCTS: Product[] = [
     name: "Ballon de basket grip",
     tagline: "Indoor / outdoor",
     price: 29.9,
-    image: basket,
+    image: UNSPLASH_BASKET,
     category: "ballons",
   },
   {
@@ -135,7 +142,7 @@ export const PRODUCTS: Product[] = [
     name: "Serviette sport personnalisable",
     tagline: "Salle, plage ou entraînement",
     price: 21.9,
-    image: tshirt,
+    image: UNSPLASH_TSHIRT,
     category: "serviettes",
     customizable: true,
   },
@@ -144,7 +151,7 @@ export const PRODUCTS: Product[] = [
     name: "Casquette sport ajustable",
     tagline: "Style sportif premium",
     price: 19.9,
-    image: cap,
+    image: UNSPLASH_CAP,
     category: "casquettes",
     sizes: ["Unique"],
   },
@@ -153,7 +160,7 @@ export const PRODUCTS: Product[] = [
     name: "Maillot de basket adulte",
     tagline: "Respirant et léger",
     price: 39.9,
-    image: jersey,
+    image: UNSPLASH_JERSEY,
     category: "basket-adulte",
     sizes: TEXTILE_SIZES,
   },
@@ -162,7 +169,7 @@ export const PRODUCTS: Product[] = [
     name: "Maillot de basket enfant",
     tagline: "Coupe enfant",
     price: 34.9,
-    image: jersey,
+    image: UNSPLASH_JERSEY,
     category: "basket-enfant",
     sizes: KIDS_SIZES,
   },
@@ -171,7 +178,7 @@ export const PRODUCTS: Product[] = [
     name: "Mug personnalisé",
     tagline: "Personnalisation disponible",
     price: 14.9,
-    image: mug,
+    image: UNSPLASH_MUG,
     category: "mugs",
     customizable: true,
     isNew: true,
@@ -181,7 +188,7 @@ export const PRODUCTS: Product[] = [
     name: "Mug supporter",
     tagline: "Idéal cadeau sportif",
     price: 16.9,
-    image: mug,
+    image: UNSPLASH_MUG,
     category: "mugs",
   },
   {
@@ -189,7 +196,7 @@ export const PRODUCTS: Product[] = [
     name: "Tote bag personnalisé",
     tagline: "Personnalisation bientôt disponible",
     price: 18.9,
-    image: tshirt,
+    image: UNSPLASH_TSHIRT,
     category: "tote-bags",
     customizable: true,
     comingSoon: true,
