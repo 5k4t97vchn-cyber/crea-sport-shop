@@ -1,0 +1,388 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.site {
+  min-height: 100vh;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px clamp(18px, 5vw, 72px);
+  background: rgba(248, 250, 252, 0.86);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.logoIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 16px;
+  background: #111827;
+  color: white;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.18);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  color: #475569;
+  font-weight: 700;
+}
+
+.nav a:hover {
+  color: #0f172a;
+}
+
+.menuBtn {
+  display: none;
+  border: 0;
+  background: white;
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+  padding: clamp(42px, 8vw, 96px) clamp(18px, 5vw, 72px);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #2563eb;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 13px;
+}
+
+h1, h2, h3, p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  margin-bottom: 22px;
+}
+
+.heroDescription {
+  font-size: clamp(17px, 2vw, 21px);
+  line-height: 1.65;
+  color: #475569;
+  max-width: 660px;
+  margin-bottom: 32px;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.primaryBtn, .secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.primaryBtn {
+  background: #111827;
+  color: white;
+  box-shadow: 0 18px 32px rgba(15, 23, 42, 0.22);
+}
+
+.secondaryBtn {
+  background: white;
+  color: #111827;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+}
+
+.heroCard {
+  position: relative;
+  border-radius: 34px;
+  overflow: hidden;
+  min-height: 520px;
+  box-shadow: 0 34px 80px rgba(15, 23, 42, 0.20);
+  background: #e2e8f0;
+}
+
+.heroCard img {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  object-fit: cover;
+  display: block;
+}
+
+.floatingCard {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 14px 18px;
+  border-radius: 999px;
+  font-weight: 900;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.22);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 0 clamp(18px, 5vw, 72px) 48px;
+}
+
+.feature {
+  background: white;
+  padding: 28px;
+  border-radius: 28px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.feature svg {
+  color: #2563eb;
+  margin-bottom: 16px;
+}
+
+.feature h3 {
+  margin-bottom: 8px;
+}
+
+.feature p {
+  color: #64748b;
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+.section {
+  padding: 54px clamp(18px, 5vw, 72px);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: end;
+  margin-bottom: 28px;
+}
+
+.sectionHeader h2, .cta h2 {
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 0;
+}
+
+.searchBox {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: white;
+  color: #64748b;
+  padding: 14px 18px;
+  border-radius: 999px;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+  min-width: 260px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.product {
+  overflow: hidden;
+  background: white;
+  border-radius: 28px;
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.productImage {
+  position: relative;
+  height: 240px;
+  background: #e2e8f0;
+}
+
+.productImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.productImage span {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0f172a;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.productInfo {
+  padding: 20px;
+}
+
+.productInfo p {
+  color: #2563eb;
+  font-weight: 900;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.productInfo h3 {
+  margin-bottom: 18px;
+}
+
+.productBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.productBottom strong {
+  font-size: 20px;
+}
+
+.productBottom button {
+  border: 0;
+  background: #111827;
+  color: white;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.cta {
+  margin: 40px clamp(18px, 5vw, 72px) 70px;
+  padding: clamp(30px, 5vw, 56px);
+  border-radius: 34px;
+  background: #111827;
+  color: white;
+  text-align: center;
+  box-shadow: 0 32px 70px rgba(15, 23, 42, 0.22);
+}
+
+.cta p {
+  color: #cbd5e1;
+  line-height: 1.65;
+  max-width: 760px;
+  margin: 14px auto 26px;
+}
+
+.cta .primaryBtn {
+  background: white;
+  color: #111827;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 26px clamp(18px, 5vw, 72px);
+  color: #64748b;
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+@media (max-width: 980px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .features, .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .heroCard, .heroCard img {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 680px) {
+  .nav {
+    display: none;
+  }
+
+  .menuBtn {
+    display: inline-grid;
+    place-items: center;
+  }
+
+  .features, .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionHeader {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .searchBox {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .heroCard, .heroCard img {
+    min-height: 340px;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+}
