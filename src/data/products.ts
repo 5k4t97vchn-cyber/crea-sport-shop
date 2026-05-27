@@ -7,11 +7,17 @@ import cap from "@/assets/product-cap.jpg";
 
 export type CategoryId =
   | "tshirts"
-  | "mugs"
-  | "foot"
-  | "basket"
+  | "tshirts-humour"
+  | "body-bebe"
+  | "tshirts-enfants"
+  | "maillots-foot"
   | "ballons"
-  | "casquettes";
+  | "serviettes"
+  | "casquettes"
+  | "basket-adulte"
+  | "basket-enfant"
+  | "mugs"
+  | "tote-bags";
 
 export type Product = {
   id: string;
@@ -22,199 +28,170 @@ export type Product = {
   category: CategoryId;
   sizes?: string[];
   isNew?: boolean;
+  customizable?: boolean;
+  comingSoon?: boolean;
 };
 
 export const CATEGORIES: { id: CategoryId; label: string }[] = [
   { id: "tshirts", label: "T-shirts" },
-  { id: "mugs", label: "Mugs" },
-  { id: "foot", label: "Foot" },
-  { id: "basket", label: "Basket" },
+  { id: "tshirts-humour", label: "T-shirts humour" },
+  { id: "body-bebe", label: "Body bébé" },
+  { id: "tshirts-enfants", label: "T-shirts enfants" },
+  { id: "maillots-foot", label: "Maillots de foot" },
   { id: "ballons", label: "Ballons" },
+  { id: "serviettes", label: "Serviettes" },
   { id: "casquettes", label: "Casquettes" },
+  { id: "basket-adulte", label: "Basket adulte" },
+  { id: "basket-enfant", label: "Basket enfant" },
+  { id: "mugs", label: "Mugs" },
+  { id: "tote-bags", label: "Tote bags" },
 ];
 
-const TEXTILE_SIZES = ["S", "M", "L", "XL"];
+const TEXTILE_SIZES = ["XS", "S", "M", "L", "XL", "XXL"];
+const KIDS_SIZES = ["2 ans", "4 ans", "6 ans", "8 ans", "10 ans", "12 ans"];
+const BABY_SIZES = ["3 mois", "6 mois", "12 mois", "18 mois", "24 mois"];
 
 export const PRODUCTS: Product[] = [
-  // T-shirts
   {
-    id: "tshirt-performance-air",
-    name: "T-Shirt Performance Air",
-    tagline: "Textile premium",
-    price: 35,
+    id: "tshirt-sport-blanc",
+    name: "T-shirt sport personnalisé blanc",
+    tagline: "Textile premium personnalisable",
+    price: 29.9,
     image: tshirt,
     category: "tshirts",
     sizes: TEXTILE_SIZES,
+    customizable: true,
     isNew: true,
   },
   {
-    id: "jersey-pro",
-    name: "Maillot Pro Blanc",
-    tagline: "Coton bio",
-    price: 39,
-    image: jersey,
-    category: "tshirts",
-    sizes: TEXTILE_SIZES,
-  },
-  {
-    id: "tshirt-classic-noir",
-    name: "T-Shirt Classic Noir",
-    tagline: "Coton peigné",
-    price: 29,
+    id: "tshirt-sport-noir",
+    name: "T-shirt sport personnalisé noir",
+    tagline: "Style sobre et sportif",
+    price: 32.9,
     image: tshirt,
     category: "tshirts",
     sizes: TEXTILE_SIZES,
+    customizable: true,
   },
   {
-    id: "tshirt-graphic-energy",
-    name: "T-Shirt Graphic Energy",
-    tagline: "Édition graphique",
-    price: 42,
-    image: jersey,
-    category: "tshirts",
-    sizes: TEXTILE_SIZES,
-    isNew: true,
-  },
-
-  // Mugs
-  {
-    id: "mug-ceramique",
-    name: "Mug Céramique Sport",
-    tagline: "Édition limitée",
-    price: 18,
-    image: mug,
-    category: "mugs",
-  },
-  {
-    id: "mug-thermo",
-    name: "Mug Thermo Champion",
-    tagline: "Garde au chaud",
-    price: 24,
-    image: mug,
-    category: "mugs",
-    isNew: true,
-  },
-  {
-    id: "mug-team",
-    name: "Mug Team Spirit",
-    tagline: "Pour les supporters",
-    price: 16,
-    image: mug,
-    category: "mugs",
-  },
-
-  // Foot
-  {
-    id: "ballon-foot-elite",
-    name: "Ballon de Foot Elite",
-    tagline: "Match officiel",
-    price: 49,
-    image: foot,
-    category: "foot",
-    isNew: true,
-  },
-  {
-    id: "maillot-foot-stadium",
-    name: "Maillot Foot Stadium",
-    tagline: "Respirant",
-    price: 55,
-    image: jersey,
-    category: "foot",
-    sizes: TEXTILE_SIZES,
-  },
-  {
-    id: "short-foot-pro",
-    name: "Short Foot Pro",
-    tagline: "Léger & technique",
-    price: 32,
+    id: "tshirt-humour-apero",
+    name: "T-shirt humour Team Apéro Sport",
+    tagline: "Humour sportif",
+    price: 24.9,
     image: tshirt,
-    category: "foot",
-    sizes: TEXTILE_SIZES,
-  },
-
-  // Basket
-  {
-    id: "ballon-basket-pro",
-    name: "Ballon de Basket Pro-Grip",
-    tagline: "Équipement",
-    price: 59,
-    image: basket,
-    category: "basket",
-  },
-  {
-    id: "maillot-basket-court",
-    name: "Maillot Basket Court",
-    tagline: "Mesh respirant",
-    price: 45,
-    image: jersey,
-    category: "basket",
+    category: "tshirts-humour",
     sizes: TEXTILE_SIZES,
     isNew: true,
   },
   {
-    id: "short-basket-arena",
-    name: "Short Basket Arena",
-    tagline: "Coupe longue",
-    price: 38,
+    id: "body-bebe-champion",
+    name: "Body bébé futur champion",
+    tagline: "Cadeau naissance",
+    price: 19.9,
     image: tshirt,
-    category: "basket",
-    sizes: TEXTILE_SIZES,
+    category: "body-bebe",
+    sizes: BABY_SIZES,
+    customizable: true,
   },
-
-  // Ballons
   {
-    id: "ballon-mini-collector",
-    name: "Mini Ballon Collector",
-    tagline: "Décoration",
-    price: 22,
+    id: "tshirt-enfant-mini-star",
+    name: "T-shirt enfant Mini Star",
+    tagline: "Pour les jeunes sportifs",
+    price: 22.9,
+    image: tshirt,
+    category: "tshirts-enfants",
+    sizes: KIDS_SIZES,
+    customizable: true,
+  },
+  {
+    id: "maillot-foot-personnalise",
+    name: "Maillot de foot personnalisé",
+    tagline: "Nom et numéro bientôt disponibles",
+    price: 44.9,
+    image: jersey,
+    category: "maillots-foot",
+    sizes: TEXTILE_SIZES,
+    customizable: true,
+    isNew: true,
+  },
+  {
+    id: "ballon-foot-training",
+    name: "Ballon de foot entraînement",
+    tagline: "Club et loisir",
+    price: 24.9,
     image: foot,
     category: "ballons",
   },
   {
-    id: "ballon-street-edition",
-    name: "Ballon Street Edition",
-    tagline: "Outdoor",
-    price: 35,
+    id: "ballon-basket-orange",
+    name: "Ballon de basket grip",
+    tagline: "Indoor / outdoor",
+    price: 29.9,
     image: basket,
     category: "ballons",
+  },
+  {
+    id: "serviette-sport",
+    name: "Serviette sport personnalisable",
+    tagline: "Salle, plage ou entraînement",
+    price: 21.9,
+    image: tshirt,
+    category: "serviettes",
+    customizable: true,
+  },
+  {
+    id: "casquette-sport",
+    name: "Casquette sport ajustable",
+    tagline: "Style sportif premium",
+    price: 19.9,
+    image: cap,
+    category: "casquettes",
+    sizes: ["Unique"],
+  },
+  {
+    id: "maillot-basket-adulte",
+    name: "Maillot de basket adulte",
+    tagline: "Respirant et léger",
+    price: 39.9,
+    image: jersey,
+    category: "basket-adulte",
+    sizes: TEXTILE_SIZES,
+  },
+  {
+    id: "maillot-basket-enfant",
+    name: "Maillot de basket enfant",
+    tagline: "Coupe enfant",
+    price: 34.9,
+    image: jersey,
+    category: "basket-enfant",
+    sizes: KIDS_SIZES,
+  },
+  {
+    id: "mug-personnalise",
+    name: "Mug personnalisé",
+    tagline: "Personnalisation disponible",
+    price: 14.9,
+    image: mug,
+    category: "mugs",
+    customizable: true,
     isNew: true,
   },
   {
-    id: "ballon-training",
-    name: "Ballon Training Club",
-    tagline: "Entraînement",
-    price: 28,
-    image: foot,
-    category: "ballons",
-  },
-
-  // Casquettes
-  {
-    id: "casquette-racing",
-    name: "Casquette Racing Tech",
-    tagline: "Ajustable",
-    price: 28,
-    image: cap,
-    category: "casquettes",
-    sizes: ["Unique"],
+    id: "mug-supporter",
+    name: "Mug supporter",
+    tagline: "Idéal cadeau sportif",
+    price: 16.9,
+    image: mug,
+    category: "mugs",
   },
   {
-    id: "casquette-snapback",
-    name: "Casquette Snapback Urban",
-    tagline: "Visière plate",
-    price: 32,
-    image: cap,
-    category: "casquettes",
-    sizes: ["Unique"],
-    isNew: true,
-  },
-  {
-    id: "casquette-trail",
-    name: "Casquette Trail Light",
-    tagline: "Ultra légère",
-    price: 26,
-    image: cap,
-    category: "casquettes",
-    sizes: ["Unique"],
+    id: "tote-bag-personnalise",
+    name: "Tote bag personnalisé",
+    tagline: "Personnalisation bientôt disponible",
+    price: 18.9,
+    image: tshirt,
+    category: "tote-bags",
+    customizable: true,
+    comingSoon: true,
   },
 ];
