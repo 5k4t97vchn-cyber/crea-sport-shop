@@ -274,7 +274,7 @@ function Store() {
               },
               {
                 name: "Nicolas",
-                text: "J’aime beaucoup le style Créa&Sport et les idées de personnalisation.",
+                text: "J'aime beaucoup le style Créa&Sport et les idées de personnalisation.",
               },
               {
                 name: "Amélie",
@@ -291,7 +291,7 @@ function Store() {
                   ))}
                 </div>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  “{review.text}”
+                  "{review.text}"
                 </p>
                 <p className="mt-3 text-sm font-bold">{review.name}</p>
               </div>
