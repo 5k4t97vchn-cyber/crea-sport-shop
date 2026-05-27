@@ -9,7 +9,7 @@ import { ProductCard } from "@/components/store/ProductCard";
 import { CartDrawer } from "@/components/store/CartDrawer";
 import { CATEGORIES, PRODUCTS, type CategoryId } from "@/data/products";
 
-export const Route = createFileRoute("/index")({
+export const Route = createFileRoute("/")
   head: () => ({
     meta: [
       { title: "Créa&Sport — Boutique sport & personnalisation" },
