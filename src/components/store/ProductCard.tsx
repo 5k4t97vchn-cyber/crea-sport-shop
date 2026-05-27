@@ -5,18 +5,18 @@ import { useCart, formatPrice } from "@/contexts/CartContext";
 
 export function ProductCard({ product }: { product: Product }) {
   const { addItem } = useCart();
-  const [size, setSize] = useState<string | undefined>(product.sizes?.[1] ?? product.sizes?.[0]);
+  const defaultSize =
+    product.sizes && product.sizes.length > 1
+      ? product.sizes[1] ?? product.sizes[0]
+      : product.sizes?.[0];
+  const [size, setSize] = useState<string | undefined>(defaultSize);
   const [qty, setQty] = useState(1);
-  const [expanded, setExpanded] = useState(false);
+
+  const hasSizes = !!product.sizes && product.sizes.length > 1;
 
   return (
-    <article className="group">
-      <button
-        type="button"
-        onClick={() => setExpanded((v) => !v)}
-        className="relative block w-full overflow-hidden rounded-2xl bg-secondary"
-        aria-label={`Détails ${product.name}`}
-      >
+    <article className="group flex flex-col">
+      <div className="relative block w-full overflow-hidden rounded-2xl bg-secondary">
         <div className="aspect-[4/5] w-full overflow-hidden">
           <img
             src={product.image}
@@ -35,7 +35,7 @@ export function ProductCard({ product }: { product: Product }) {
             Nouveau
           </span>
         )}
-      </button>
+      </div>
 
       <div className="mt-3">
         <p className="text-[10px] font-bold tracking-widest text-muted-foreground uppercase">
@@ -47,67 +47,63 @@ export function ProductCard({ product }: { product: Product }) {
         <p className="mt-1 text-sm font-semibold">{formatPrice(product.price)}</p>
       </div>
 
-      {expanded && (
-        <div className="mt-3 space-y-3 rounded-2xl bg-card p-3 ring-1 ring-black/5">
-          {product.sizes && product.sizes.length > 1 && (
-            <div>
-              <p className="mb-2 text-[10px] font-bold tracking-widest text-muted-foreground uppercase">
-                Taille
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {product.sizes.map((s) => (
-                  <button
-                    key={s}
-                    type="button"
-                    onClick={() => setSize(s)}
-                    className={[
-                      "size-9 rounded-lg text-[11px] font-bold transition-colors",
-                      size === s
-                        ? "bg-ink text-ink-foreground"
-                        : "bg-secondary text-foreground hover:bg-secondary/80",
-                    ].join(" ")}
-                  >
-                    {s}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1 rounded-full bg-secondary px-2 py-1">
+      {hasSizes && (
+        <div className="mt-3">
+          <p className="mb-1.5 text-[10px] font-bold tracking-widest text-muted-foreground uppercase">
+            Taille
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {product.sizes!.map((s) => (
               <button
+                key={s}
                 type="button"
-                aria-label="Diminuer"
-                onClick={() => setQty((q) => Math.max(1, q - 1))}
-                className="flex size-7 items-center justify-center rounded-full text-foreground"
+                onClick={() => setSize(s)}
+                className={[
+                  "h-8 min-w-8 rounded-lg px-2 text-[11px] font-bold transition-colors",
+                  size === s
+                    ? "bg-ink text-ink-foreground"
+                    : "bg-secondary text-foreground hover:bg-secondary/80",
+                ].join(" ")}
               >
-                <Minus className="size-3.5" />
+                {s}
               </button>
-              <span className="w-5 text-center text-xs font-semibold">{qty}</span>
-              <button
-                type="button"
-                aria-label="Augmenter"
-                onClick={() => setQty((q) => q + 1)}
-                className="flex size-7 items-center justify-center rounded-full text-foreground"
-              >
-                <Plus className="size-3.5" />
-              </button>
-            </div>
-            <button
-              type="button"
-              onClick={() => {
-                addItem(product, { size, quantity: qty });
-                setQty(1);
-              }}
-              className="flex flex-1 items-center justify-center gap-1.5 rounded-full bg-brand py-2 text-xs font-bold text-brand-foreground transition-transform active:scale-95"
-            >
-              <ShoppingBag className="size-3.5" />
-              Ajouter
-            </button>
+            ))}
           </div>
         </div>
       )}
+
+      <div className="mt-3 flex items-center gap-2">
+        <div className="flex items-center gap-1 rounded-full bg-secondary px-2 py-1">
+          <button
+            type="button"
+            aria-label="Diminuer"
+            onClick={() => setQty((q) => Math.max(1, q - 1))}
+            className="flex size-7 items-center justify-center rounded-full text-foreground"
+          >
+            <Minus className="size-3.5" />
+          </button>
+          <span className="w-5 text-center text-xs font-semibold">{qty}</span>
+          <button
+            type="button"
+            aria-label="Augmenter"
+            onClick={() => setQty((q) => q + 1)}
+            className="flex size-7 items-center justify-center rounded-full text-foreground"
+          >
+            <Plus className="size-3.5" />
+          </button>
+        </div>
+        <button
+          type="button"
+          onClick={() => {
+            addItem(product, { size, quantity: qty });
+            setQty(1);
+          }}
+          className="flex flex-1 items-center justify-center gap-1.5 rounded-full bg-brand py-2 text-xs font-bold text-brand-foreground transition-transform active:scale-95"
+        >
+          <ShoppingBag className="size-3.5" />
+          Ajouter au panier
+        </button>
+      </div>
     </article>
   );
 }
