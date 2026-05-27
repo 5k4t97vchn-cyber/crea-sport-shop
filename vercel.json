@@ -1,8 +1,20 @@
 {
-  "rewrites": [
+  "buildCommand": "vite build",
+  "outputDirectory": ".output/public",
+  "framework": null,
+  "functions": {
+    "server/index.mjs": {
+      "runtime": "nodejs20.x"
+    }
+  },
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "/_build/(.*)",
+      "dest": "/_build/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/server/index.mjs"
     }
   ]
 }
